@@ -1,0 +1,5 @@
+# Hoval's own datapoint spreadsheet is copyrighted and must never be committed here.
+*.xlsx
+__pycache__/
+*.pyc
+.DS_Store

@@ -1,0 +1,24 @@
+fg,fn,dp,name_de,name_en,type,decimal,unit,note
+60,254,0,Vorlauf-Soll,Flow setpoint,S16,1,C,
+60,254,1,Speicher-Soll,Storage setpoint,S16,1,C,
+60,254,8,Leistungslimit,Power limit,S16,1,%,
+60,254,12,Kuehl-Sollwert,Cooling setpoint,S16,1,C,
+60,254,16,FA Vorlauf-Soll,FA flow setpoint,S16,1,C,
+60,254,17,Waermeerzeuger-Temp,Heat generator temp,S16,1,C,
+60,254,19,Umschalttemp aktiv/passiv,Active/passive switch-over temp,S16,1,C,"Reads 0x8000 (invalid) on air-source units -- this is a ground/geothermal-source-only sensor and does not exist on the UltraSource B (air/water)."
+60,254,22,FA Heiz-Soll an WEZ,FA heating setpoint to WEZ,S16,1,C,
+60,254,23,Speicher-Soll FA,Storage setpoint (FA),S16,1,C,
+60,254,24,WEZ-Sollwert,Heat generator setpoint,S16,1,C,
+60,254,27,Fehlercode,Error code,U8,0,,
+60,254,29,Ruecklauftemp,Return flow temp,S16,1,C,
+60,254,30,WEZ-Leistung,Heat generator power,U8,0,%,
+60,254,31,Absolut-Leistung,Absolute power,U8,0,%,
+60,254,32,Wasserdruck,Water pressure,S16,1,bar,"Reads 0x8000 (invalid) if no pressure sensor is wired to this input."
+60,254,33,WEZ-Status,Heat generator status,U8,0,,
+60,254,34,FA-Status,FA status,U8,0,,
+60,254,45,COP,COP,U8,1,-,Live coefficient of performance while the compressor is running; reads 0 when idle.
+60,254,47,Energie Heizen (Lebensdauer),Lifetime energy heating,U32,3,MWh,Lifetime energy counter -- usable for a real seasonal performance factor (SPF/JAZ).
+60,254,51,Energie Kuehlen (Lebensdauer),Lifetime energy cooling,U32,3,MWh,Lifetime energy counter.
+60,254,55,Energie Warmwasser (Lebensdauer),Lifetime energy DHW,U32,3,MWh,Lifetime energy counter.
+60,254,84,Quelle Vorlauf (Verdampfer ein),Source flow (evaporator inlet),S16,1,C,
+60,254,85,Quelle Ruecklauf (Verdampfer Oberflaeche),Source return (evaporator surface),S16,1,C,
