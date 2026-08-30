@@ -32,7 +32,7 @@ realization that merging efforts helps everyone more than three parallel lists.
 | `tools/generate_datapoints.py` → `datapoints.csv` | the raw `(fg, fn, dp, type, scale, min, max, writable, unit)` catalogue | **No** — generate locally (see below) |
 | `tools/generate_translations.py` → `translations.csv` | DE/EN names + descriptions keyed by `(fg, fn, dp)` | **No** — generate locally |
 | `gui/gui.csv` | mdi-icon + usage/category mapping for dashboards | Yes (once seeded — see `gui/README.md`) |
-| `community_additions/*.csv` | datapoints **not** in Hoval's own list, purely from independent reverse-engineering | **Yes** — this is our own work, freely shareable |
+| `community_additions/<device>/*.csv` | datapoints **not** in Hoval's own list, purely from independent reverse-engineering | **Yes** — this is our own work, freely shareable |
 
 **Why the raw list isn't committed:** the datapoint catalogue is derived from Hoval's
 own copyrighted `TTE-GW-Modbus-datapoints.xlsx`. Rather than re-hosting a derivative
@@ -51,9 +51,14 @@ python3 tools/generate_translations.py your-copy-of-TTE-GW-Modbus-datapoints.xls
 ## Community additions
 
 The real community value is what's **not** in Hoval's own list — datapoints found by
-listening to the bus that answer but were never documented anywhere:
+listening to the bus that answer but were never documented anywhere.
 
-- **`community_additions/fa_level_fg60_fn254.csv`** — the compressor/refrigerant-circuit
+**Layout:** one subfolder per device/subsystem under `community_additions/` (e.g.
+`WEZ` = heat generator/compressor level, `HK` = heating circuit, `KWL` = ventilation,
+`SG` = smart grid). Keeps the list navigable as more devices and contributors are
+added instead of one growing flat folder.
+
+- **`community_additions/WEZ/fa_level_fg60_fn254.csv`** — the compressor/refrigerant-circuit
   "FA" level (`fg=60, fn=254`), readable over the poll arbitration ID `0x06E40801`.
   Verified live on a Hoval UltraSource B comfort C17: lifetime energy counters
   (heating/cooling/DHW in MWh — enables a real seasonal performance factor), live COP,
@@ -62,7 +67,8 @@ listening to the bus that answer but were never documented anywhere:
   confirmed and extended here.
 
 Contributions of further undocumented datapoints (with the fg/fn/dp, a decode, and how
-it was verified) are very welcome — open a PR or an issue.
+it was verified) are very welcome — open a PR or an issue. New device/subsystem →
+new subfolder.
 
 ## Protocol basics (for newcomers)
 
@@ -78,7 +84,7 @@ Full protocol write-up: [esp_canbus discussion #50](https://github.com/nliaudat/
 
 ## Contributing
 
-- Found a new datapoint? Add it to `community_additions/` with fg/fn/dp, a name, type,
+- Found a new datapoint? Add it to `community_additions/<device>/` (new device → new subfolder) with fg/fn/dp, a name, type,
   scale/unit, and how you verified it (candump capture, panel comparison, ...).
 - Found an error in an existing entry? PRs welcome, same rule: say how you verified it.
 - Please don't attach Hoval's own spreadsheet or copy its text verbatim into an issue/PR —
