@@ -1,0 +1,6 @@
+fg,fn,dp,name_de,name_en,type,decimal,unit,note
+1,0,7014,Kuehlbetrieb Freigabe (Par. 07-014),Cooling operation release (par. 07-014),U8,0,,"Not in Hoval's Modbus datapoint list; on the controller display it is only shown as a bare number 0-4. Verified on a UltraSource B comfort C17 / TopTronic E: CAN GET returns 3, matching the value shown on the display. Enum meanings unknown."
+1,0,3058,unbekannt (Sollwertreihe 3051/3053/3054/3056),unknown (setpoint series 3051/3053/3054/3056),S16,1,C,"UNVERIFIED. Answers to GET with 0. Continues the fg=1 room-setpoint series (3051 normal heating, 3053 setback heating, 3054 normal cooling, 3056 eco cooling). Meaning not confirmed."
+1,0,20125,unbekannt,unknown,U8,0,,"UNVERIFIED. Answers with 0 on HC1, HC2 and DHW (fg=2) alike - probably a generic per-circuit status byte."
+1,1,20125,unbekannt,unknown,U8,0,,"UNVERIFIED. See fg=1/fn=0/dp=20125."
+2,0,20125,unbekannt,unknown,U8,0,,"UNVERIFIED. See fg=1/fn=0/dp=20125."
