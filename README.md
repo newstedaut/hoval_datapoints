@@ -66,6 +66,26 @@ added instead of one growing flat folder.
   by [hpoeckl/hoval-exporter](https://github.com/hpoeckl/hoval-exporter), independently
   confirmed and extended here.
 
+- **`community_additions/WEZ/system_output_setpoints.csv`** — the power setpoint per
+  operating mode (`fg=3`, dp 2040/2041/2042) plus the aggregate channel and request flag
+  (`fg=4`, dp 1009/2043). Two traps documented: **-127.0 is an invalid marker while
+  -100.0 is a valid reading**, and dp 2043 is binary despite being named "0-100% current
+  req.". Useful as an early indicator that the compressor is about to start — explicitly
+  *not* a start criterion.
+- **`community_additions/WEZ/heat_generator_status_codes.csv`** — status codes for the
+  heat generator, including **16, 51, 17, 44 and 98, which appear on the bus but in no
+  Hoval status list**. Code 16 is proposed as the restart lockout (54 of 54 observed
+  blocks sit between a stop and the next start with a demand pending, capped at 15 min).
+  Confidence is carried per row, so unverified codes stay visible as unverified.
+- **`community_additions/WEZ/corrections_runtime_counters.csv`** — *corrections* to
+  Hoval's own list: dp 1034/1035 carry contradictory names in different places (the
+  values decide: 1034 = cooling, 1035 = DHW), and 31 of 116 32-bit registers name their
+  low word `... low` with a space instead of `..._low`, which silently breaks consumers
+  that detect the low word by name suffix.
+- **`community_additions/HC/undocumented_fg1.csv`** — heating-circuit datapoints that
+  answer a GET but are absent from Hoval's list. Only `1-0-7014` is confirmed; the rest
+  are marked UNVERIFIED on purpose.
+
 Contributions of further undocumented datapoints (with the fg/fn/dp, a decode, and how
 it was verified) are very welcome — open a PR or an issue. New device/subsystem →
 new subfolder.
@@ -94,3 +114,4 @@ Full protocol write-up: [esp_canbus discussion #50](https://github.com/nliaudat/
 
 Everyone listed under "Why this repo exists" above, and the original protocol
 reverse-engineering that made all of these projects possible.
+
