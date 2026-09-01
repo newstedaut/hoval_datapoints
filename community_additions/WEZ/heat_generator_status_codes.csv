@@ -1,0 +1,10 @@
+fg,fn,dp,reg,name_en,code,label_en,confidence,evidence
+60,254,33,1539,Heat generator status,0,Off,confirmed,"8222 of 9421 samples; modulation 0"
+60,254,33,1539,Heat generator status,1,Heating,confirmed,"119 samples; coincides with rising heating energy counter"
+60,254,33,1539,Heat generator status,2,Cooling,confirmed,"263 samples; coincides with rising cooling energy counter"
+60,254,33,1539,Heat generator status,4,Domestic hot water,confirmed,"605 samples; coincides with rising DHW energy counter"
+60,254,33,1539,Heat generator status,16,Restart lockout / minimum off time (proposed),likely,"54 of 54 blocks satisfy all three criteria simultaneously: the block lies between a compressor stop and the next start, shows no modulation of its own, and a demand is pending (dp 2043 = 100). Block length is capped at 15 min (30 of 54 exactly 15 min, the shorter ones clipped by the 5-min sampling grid) and the resulting stop-to-start gap is 20 min in 38 of 54 cases and 19 min in 11 more. A fixed timer, not a coincidence. NOT in any Hoval status list."
+60,254,33,1539,Heat generator status,51,Pre-start / startup preparation (proposed),likely,"41 blocks, every one exactly one sample long (<=5 min), never any modulation of its own, and followed by an actual compressor run in 39 of 41 cases. Occurs before heating, cooling and DHW runs alike, so it is not mode-specific. NOT in any Hoval status list."
+60,254,33,1539,Heat generator status,17,unknown,unverified,"2 blocks only (10 min and 140 min). Insufficient evidence - listed so others can add cases."
+60,254,33,1539,Heat generator status,44,unknown,unverified,"1 block (10 min). Insufficient evidence."
+60,254,33,1539,Heat generator status,98,unknown,unverified,"1 block (15 min). Insufficient evidence."
