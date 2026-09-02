@@ -66,6 +66,13 @@ added instead of one growing flat folder.
   by [hpoeckl/hoval-exporter](https://github.com/hpoeckl/hoval-exporter), independently
   confirmed and extended here.
 
+- **`community_additions/WEZ/hydraulics_fg60_fn7.csv`** — the hydraulic level of the
+  heat pump (`fg=60, fn=7`): heat-pump flow/return temperature, internal circulation
+  pump speed (**0xFFFFFFFF = pump off**) and averaged volume flow. Physics check: flow x
+  spread reproduces the controller's own thermal power. Also records that the
+  refrigerant-circuit datapoints Hoval lists in this group (dp 259-264) stay silent on an
+  air-source UltraSource B, and that the name column of the matching Modbus block
+  31892-31921 is shifted by rows in the public list.
 - **`community_additions/WEZ/system_output_setpoints.csv`** — the power setpoint per
   operating mode (`fg=3`, dp 2040/2041/2042) plus the aggregate channel and request flag
   (`fg=4`, dp 1009/2043). Two traps documented: **-127.0 is an invalid marker while
