@@ -1,0 +1,3 @@
+fg,fn,dp,type,writable,enum_options,invalid_values
+50,0,2010,U16,yes,"10=Party mode 1h 100%|20=Party mode 2h 100%|30=Party mode 3h 100%|50=Party mode 5h 100%|80=Party mode 8h 100%|100=Party mode 10h 100%",
+0,0,21054,U8,yes,"7=Acknowledge filter maintenance|8=Acknowledge cleaning",
